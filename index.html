@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spesial Buat Davina! 🐱✨</title>
+    <!-- Tailwind CSS untuk styling responsif & modern -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Rounded Lucu dari Google Fonts: Nunito & Quicksand -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800;900&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        display: ['"Nunito"', 'sans-serif'],
+                        sans: ['"Quicksand"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Latar belakang pastel pink-krem dengan pola polkadots ceria */
+        body {
+            background-color: #fff6f8;
+            background-image: radial-gradient(#fbcfe8 2px, transparent 2px), radial-gradient(#fde68a 2px, #fff6f8 2px);
+            background-size: 38px 38px;
+            background-position: 0 0, 19px 19px;
+        }
+
+        /* Animasi stiker melayang di background */
+        @keyframes floatSticker {
+            0%, 100% { transform: translateY(0px) rotate(-6deg); }
+            50% { transform: translateY(-14px) rotate(6deg); }
+        }
+        .sticker-float {
+            animation: floatSticker 3.4s ease-in-out infinite;
+        }
+
+        /* Animasi kucing ketawa memantul saat perayaan */
+        @keyframes happyBounce {
+            0%, 100% { transform: translateY(0) scale(1, 1); }
+            30% { transform: translateY(-18px) scale(0.95, 1.05); }
+            50% { transform: translateY(0) scale(1.06, 0.94); }
+            70% { transform: translateY(-8px) scale(0.98, 1.02); }
+        }
+        .animate-happy-bounce {
+            animation: happyBounce 1.05s infinite;
+        }
+
+        /* Animasi stempel "DIKLAIM!" pada voucher */
+        @keyframes stampSlam {
+            0% { transform: scale(2.8) rotate(-25deg); opacity: 0; }
+            60% { transform: scale(0.9) rotate(-10deg); opacity: 1; }
+            80% { transform: scale(1.05) rotate(-13deg); }
+            100% { transform: scale(1) rotate(-12deg); opacity: 1; }
+        }
+        .stamp-claimed {
+            animation: stampSlam 0.4s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+
+        /* Animasi Hujan Confetti & Emoji */
+        @keyframes confettiDrop {
+            0% { transform: translateY(-20px) rotate(0deg) scale(1); opacity: 1; }
+            100% { transform: translateY(105vh) rotate(720deg) scale(0.6); opacity: 0; }
+        }
+        .confetti-item {
+            position: fixed;
+            top: -30px;
+            pointer-events: none;
+            z-index: 9999;
+            animation: confettiDrop linear forwards;
+        }
+
+        /* Efek tombol 3D kawaii */
+        .btn-kawaii {
+            box-shadow: 0 6px 0 rgba(0, 0, 0, 0.14);
+            transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.2s ease;
+        }
+        .btn-kawaii:active {
+            transform: translateY(4px);
+            box-shadow: 0 2px 0 rgba(0, 0, 0, 0.14);
+        }
+
+        /* Efek lekukan tiket sobek di sisi kiri & kanan voucher */
+        .voucher-notch-left, .voucher-notch-right {
+            position: absolute;
+            top: 50%;
+            width: 24px;
+            height: 24px;
+            background-color: #fff6f8;
+            border-radius: 9999px;
+            transform: translateY(-50%);
+            z-index: 10;
+        }
+        .voucher-notch-left { left: -12px; }
+        .voucher-notch-right { right: -12px; }
+    </style>
+</head>
+<body class="text-slate-800 min-h-screen overflow-x-hidden relative selection:bg-pink-300 selection:text-pink-950">
+
+    <!-- Dekorasi Stiker Lucu Melayang di Background -->
+    <div class="fixed inset-0 pointer-events-none overflow-hidden z-0 select-none" aria-hidden="true">
+        <span class="sticker-float text-3xl sm:text-4xl absolute top-8 left-[7%]" style="animation-delay: 0s;">🐱</span>
+        <span class="sticker-float text-2xl sm:text-3xl absolute top-20 right-[9%]" style="animation-delay: 0.7s;">💖</span>
+        <span class="sticker-float text-3xl sm:text-4xl absolute top-[45%] left-[4%]" style="animation-delay: 1.4s;">✨</span>
+        <span class="sticker-float text-2xl sm:text-3xl absolute top-[55%] right-[5%]" style="animation-delay: 0.4s;">🧋</span>
+        <span class="sticker-float text-3xl sm:text-4xl absolute bottom-14 left-[10%]" style="animation-delay: 1.8s;">🐾</span>
+        <span class="sticker-float text-3xl sm:text-4xl absolute bottom-20 right-[12%]" style="animation-delay: 1.1s;">🧸</span>
+    </div>
+
+    <!-- Kontainer Utama (Mobile-First & Responsif) -->
+    <main class="relative z-10 max-w-2xl mx-auto px-4 py-8 sm:py-12 space-y-12">
+
+        <!-- =============================================================== -->
+        <!-- BAGIAN 1: HEADER / SAPAAN AWAL (EDIT TEKS DI SINI JIKA PERLU)   -->
+        <!-- =============================================================== -->
+        <header class="text-center space-y-3">
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-100 border-2 border-amber-300 text-amber-900 font-extrabold text-xs sm:text-sm shadow-sm">
+                <span>🚨</span>
+                <span>SURVEI PENTING & WAJIB BAGI PACARKU</span>
+            </div>
+
+            <h1 class="font-display text-3xl sm:text-5xl font-black text-pink-600 leading-tight drop-shadow-sm">
+                Hai Sayang 🐱✨
+            </h1>
+
+            <p class="max-w-md mx-auto text-xs sm:text-sm font-bold text-slate-600 bg-white/85 backdrop-blur-sm px-4 py-2 rounded-2xl border-2 border-pink-200 inline-block">
+                Jawab jujur ya, dilarang kabur atau pura-pura gak liat! 👀👇
+            </p>
+        </header>
+
+        <!-- =============================================================== -->
+        <!-- BAGIAN 2: KARTU PERTANYAAN & TOMBOL "ENGGAK" KABUR-KABURAN     -->
+        <!-- =============================================================== -->
+        <section id="prank-card" class="bg-white/95 backdrop-blur-md rounded-[2rem] p-6 sm:p-10 border-4 border-pink-300 shadow-xl text-center relative overflow-hidden">
+            
+            <!-- LAYAR A: PERTANYAAN AWAL -->
+            <div id="question-view" class="space-y-6">
+                <!-- Stiker SVG Kucing Gemas Nunggu Jawaban -->
+                <div class="flex justify-center">
+                    <div class="w-28 h-28 sm:w-32 sm:h-32 bg-pink-100 rounded-full flex items-center justify-center border-4 border-pink-200 shadow-inner">
+                        <svg viewBox="0 0 120 120" class="w-24 h-24">
+                            <!-- Telinga Kucing -->
+                            <polygon points="24,48 34,16 54,36" fill="#fbcfe8" stroke="#ec4899" stroke-width="4" stroke-linejoin="round"/>
+                            <polygon points="96,48 86,16 66,36" fill="#fbcfe8" stroke="#ec4899" stroke-width="4" stroke-linejoin="round"/>
+                            <!-- Kepala Kucing -->
+                            <ellipse cx="60" cy="66" rx="40" ry="34" fill="#ffffff" stroke="#ec4899" stroke-width="4"/>
+                            <!-- Mata Berbinar -->
+                            <circle cx="45" cy="62" r="6" fill="#1e293b"/>
+                            <circle cx="43" cy="60" r="2" fill="#ffffff"/>
+                            <circle cx="75" cy="62" r="6" fill="#1e293b"/>
+                            <circle cx="73" cy="60" r="2" fill="#ffffff"/>
+                            <!-- Pipi Merona -->
+                            <ellipse cx="34" cy="72" rx="6" ry="3.5" fill="#f472b6" opacity="0.65"/>
+                            <ellipse cx="86" cy="72" rx="6" ry="3.5" fill="#f472b6" opacity="0.65"/>
+                            <!-- Hidung & Mulut Gemas -->
+                            <polygon points="57,70 63,70 60,74" fill="#f43f5e"/>
+                            <path d="M52,77 Q56,82 60,77 Q64,82 68,77" fill="none" stroke="#1e293b" stroke-width="3" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="space-y-2">
+                    <!-- EDIT PERTANYAAN UTAMA DI SINI -->
+                    <h2 class="font-display text-2xl sm:text-4xl font-black text-slate-800 leading-snug">
+                         kamu sayang aku gak? 🥺
+                    </h2>
+                    <p id="tease-subtitle" class="text-xs sm:text-sm font-bold text-pink-500 min-h-[20px]">
+                        Coba pencet salah satu tombol di bawah 
+                    </p>
+                </div>
+
+                <!-- Arena Tombol (Tombol "Enggak" akan melompat acak di dalam arena ini) -->
+                <div id="button-arena" class="min-h-[165px] sm:min-h-[185px] flex flex-wrap items-center justify-center gap-4 pt-2 relative">
+                    
+                    <!-- TOMBOL "SAYANG BANGET! ❤️" (Membesar tiap tombol Enggak kabur) -->
+                    <button 
+                        id="yes-btn" 
+                        onclick="handleYesClick()" 
+                        class="btn-kawaii font-display px-7 py-3.5 rounded-2xl bg-emerald-400 hover:bg-emerald-500 border-2 border-emerald-600 text-white font-black text-base sm:text-lg cursor-pointer z-20 transition-transform duration-200"
+                    >
+                        Sayang Banget! ❤️
+                    </button>
+
+                    <!-- TOMBOL "ENGGAK 😝" (Kabur saat di-hover di laptop atau di-tap di HP) -->
+                    <button 
+                        id="no-btn" 
+                        onmouseover="runAwayButton(event)" 
+                        ontouchstart="runAwayButton(event)" 
+                        onclick="runAwayButton(event)" 
+                        class="btn-kawaii font-display px-6 py-3.5 rounded-2xl bg-rose-400 hover:bg-rose-500 border-2 border-rose-600 text-white font-extrabold text-sm sm:text-base cursor-pointer z-30 select-none"
+                    >
+                        Enggak 😝
+                    </button>
+                </div>
+            </div>
+
+            <!-- =============================================================== -->
+            <!-- LAYAR B: TAMPILAN SELEBRASI (MUNCUL SETELAH KLIK SAYANG BANGET) -->
+            <!-- =============================================================== -->
+            <div id="celebration-view" class="hidden space-y-6 py-4">
+                <!-- Ilustrasi SVG Kucing Ketawa Memantul -->
+                <div class="flex justify-center">
+                    <div class="relative animate-happy-bounce">
+                        <span class="absolute -top-3 -left-4 text-3xl">💖</span>
+                        <span class="absolute -top-3 -right-4 text-3xl">🎉</span>
+                        <div class="w-32 h-32 bg-amber-100 rounded-full flex items-center justify-center border-4 border-amber-300 shadow-md">
+                            <svg viewBox="0 0 120 120" class="w-24 h-24">
+                                <!-- Telinga -->
+                                <polygon points="24,48 34,16 54,36" fill="#fde68a" stroke="#f59e0b" stroke-width="4" stroke-linejoin="round"/>
+                                <polygon points="96,48 86,16 66,36" fill="#fde68a" stroke="#f59e0b" stroke-width="4" stroke-linejoin="round"/>
+                                <!-- Kepala -->
+                                <ellipse cx="60" cy="66" rx="40" ry="34" fill="#ffffff" stroke="#f59e0b" stroke-width="4"/>
+                                <!-- Mata Merem Ketawa (^ ^) -->
+                                <path d="M38,63 Q45,54 52,63" fill="none" stroke="#1e293b" stroke-width="4" stroke-linecap="round"/>
+                                <path d="M68,63 Q75,54 82,63" fill="none" stroke="#1e293b" stroke-width="4" stroke-linecap="round"/>
+                                <!-- Pipi Merona -->
+                                <ellipse cx="34" cy="72" rx="7" ry="4" fill="#fb7185" opacity="0.7"/>
+                                <ellipse cx="86" cy="72" rx="7" ry="4" fill="#fb7185" opacity="0.7"/>
+                                <!-- Mulut Ketawa Lebar -->
+                                <path d="M50,74 Q60,88 70,74 Z" fill="#f43f5e" stroke="#1e293b" stroke-width="2.5" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- EDIT PESAN MANIS-KOCAK SELEBRASI DI SINI -->
+                <div class="space-y-3">
+                    <h2 class="font-display text-2xl sm:text-4xl font-black text-pink-600">
+                        Hehe tau kok, kamu emang sayang aku 😏❤️
+                    </h2>
+                    <p class="text-sm sm:text-base font-bold text-slate-600 max-w-md mx-auto leading-relaxed">
+                        Makasih udah sayang sama aku, Karena kamu udah jujur (dan gak berhasil mencet tombol enggak 😹), kamu dapet 4 voucher dari aku 
+                    </p>
+                </div>
+
+                <div>
+                    <a href="#voucher-section" class="btn-kawaii inline-flex items-center gap-2 font-display px-6 py-3 rounded-2xl bg-amber-400 hover:bg-amber-500 border-2 border-amber-600 text-amber-950 font-black text-sm sm:text-base">
+                        Klaim Voucher Sekarang 🎟️
+                    </a>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- =============================================================== -->
+        <!-- BAGIAN 3: VOUCHER PACAR LUCU (4 VOUCHER SESUAI REQUEST)         -->
+        <!-- =============================================================== -->
+        <section id="voucher-section" class="space-y-6">
+            <div class="text-center space-y-2">
+                <span class="inline-block px-3.5 py-1 rounded-full bg-pink-200 text-pink-800 font-extrabold text-xs">
+                    KHUSUS BUAT PACARKU YANG IMUT ✨
+                </span>
+                <h2 class="font-display text-2xl sm:text-3xl font-black text-slate-800">
+                    Voucher foryou sayang 🎟️
+                </h2>
+                <p class="text-xs sm:text-sm font-bold text-slate-600">
+                    Ketuk atau klik kartu voucher buat klaim, terus screenshot kirim ke chat aku yakk
+                </p>
+            </div>
+
+            <!-- Grid 4 Kartu Voucher (Di-render otomatis oleh JavaScript di bawah) -->
+            <div id="voucher-grid" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <!-- Kartu voucher akan muncul di sini -->
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Notifikasi Toast Lucu di Bawah Layar (Pengganti alert) -->
+    <div id="toast-box" class="fixed bottom-5 left-1/2 -translate-x-1/2 z-50 pointer-events-none opacity-0 transition-all duration-300 translate-y-4">
+        <div class="bg-slate-900 text-white px-5 py-3 rounded-2xl shadow-xl border-2 border-pink-400 font-bold text-xs sm:text-sm flex items-center gap-2 whitespace-nowrap">
+            <span>🎟️</span>
+            <span id="toast-text">Voucher berhasil diklaim!</span>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="relative z-10 text-center pb-8 text-xs font-extrabold text-pink-500/80">
+        Dibuat karna aku sayang kamu lebih dari yang kamu kira davina or sayangku
+    </footer>
+
+    <!-- =============================================================== -->
+    <!-- JAVASCRIPT: LOGIKA PRANK TOMBOL, CONFETTI, & 4 VOUCHER LUCU     -->
+    <!-- =============================================================== -->
+    <script>
+        // 1. DAFTAR TEKS KOCAK SAAT TOMBOL "ENGGAK 😝" KABUR (BISA DIEDIT)
+        const funnyExcuses = [
+            "Eits gak kena! 😜",
+            "Tombol rusak! 🔧",
+            "Yakin? 🥺",
+            "Error 404! 🚫",
+            "Pencet yang ijo aja! 👉",
+            "Wlee gak dapet 🏃‍♂️💨",
+            "Layar kamu licin tuh! 🤭",
+            "Masa enggak sih?! 😭"
+        ];
+
+        let dodgeCount = 0;
+        let yesScale = 1;
+
+        // Fungsi agar tombol "Enggak 😝" melompat kabur secara acak & tombol "Sayang Banget! ❤️" membesar
+        function runAwayButton(event) {
+            if (event) event.preventDefault(); // Mencegah tap tidak sengaja di layar sentuh HP
+
+            const noBtn = document.getElementById('no-btn');
+            const yesBtn = document.getElementById('yes-btn');
+            const arena = document.getElementById('button-arena');
+            const subtitle = document.getElementById('tease-subtitle');
+
+            dodgeCount++;
+
+            // Ubah teks tombol "Enggak" menjadi teks kocak secara bergantian
+            const randomExcuse = funnyExcuses[(dodgeCount - 1) % funnyExcuses.length];
+            noBtn.textContent = randomExcuse;
+            subtitle.textContent = `Percobaan ke-${dodgeCount}: ${randomExcuse}`;
+
+            // Perbesar tombol "Sayang Banget! ❤️" sedikit demi sedikit (maksimal 1.6x)
+            yesScale = Math.min(yesScale + 0.09, 1.6);
+            yesBtn.style.transform = `scale(${yesScale})`;
+
+            // Pindahkan posisi tombol "Enggak" secara acak di dalam area arena
+            noBtn.style.position = 'absolute';
+
+            const arenaRect = arena.getBoundingClientRect();
+            const btnWidth = noBtn.offsetWidth || 130;
+            const btnHeight = noBtn.offsetHeight || 48;
+
+            // Hitung batas aman agar tombol tetap di dalam kotak kartu dan tidak terpotong
+            const maxLeft = Math.max(8, arenaRect.width - btnWidth - 8);
+            const maxTop = Math.max(8, arenaRect.height - btnHeight - 8);
+
+            const randomX = Math.floor(Math.random() * maxLeft);
+            const randomY = Math.floor(Math.random() * maxTop);
+
+            // Sedikit mengecil biar makin susah ditangkap
+            const shrinkScale = Math.max(0.76, 1 - dodgeCount * 0.02);
+
+            noBtn.style.left = `${randomX}px`;
+            noBtn.style.top = `${randomY}px`;
+            noBtn.style.transform = `scale(${shrinkScale})`;
+        }
+
+        // 2. FUNGSI SAAT TOMBOL "SAYANG BANGET! ❤️" DIKLIK
+        function handleYesClick() {
+            const questionView = document.getElementById('question-view');
+            const celebrationView = document.getElementById('celebration-view');
+
+            // Sembunyikan layar pertanyaan awal, tampilkan layar selebrasi
+            questionView.classList.add('hidden');
+            celebrationView.classList.remove('hidden');
+
+            // Jalankan hujan confetti & emoji lucu
+            launchConfetti();
+        }
+
+        function launchConfetti() {
+            const emojis = ['❤️', '💖', '✨', '🐱', '🎉', '🌸', '🥳', '🧋'];
+            const totalItems = 60;
+
+            for (let i = 0; i < totalItems; i++) {
+                const el = document.createElement('div');
+                el.className = 'confetti-item text-xl sm:text-2xl select-none';
+                el.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+
+                el.style.left = `${Math.random() * 100}vw`;
+                el.style.animationDuration = `${Math.random() * 1.8 + 1.8}s`;
+                el.style.animationDelay = `${Math.random() * 0.45}s`;
+
+                document.body.appendChild(el);
+
+                setTimeout(() => {
+                    el.remove();
+                }, 4200);
+            }
+        }
+
+        // 3. DATA 4 VOUCHER PACAR LUCU (EDIT TEKS DESKRIPSI DI SINI JIKA MAU)
+        const vouchersData = [
+            {
+                id: 1,
+                emoji: "🧋",
+                title: "Jajan Apa Aja 🧋",
+                desc: "Bebas pilih jajan apa aja yang kamu mau sama bebas kamu mau minta anter jemput kemanapun dan kapanpun!",
+                color: "bg-pink-100 border-pink-300 text-pink-950",
+                badge: "bg-pink-500"
+            },
+            {
+                id: 2,
+                emoji: "🎮",
+                title: "Main Game Bareng 🎮",
+                desc: "Mabar sepuasnya with aku yang jago dan baik hati.",
+                color: "bg-amber-100 border-amber-300 text-amber-950",
+                badge: "bg-amber-500"
+            },
+            {
+                id: 3,
+                emoji: "💬",
+                title: "Curhat 24/7 💬",
+                desc: "Siap dengerin cerita kamu yang aneh itu,cerita random, seneng, atau lagi capek.",
+                color: "bg-purple-100 border-purple-300 text-purple-950",
+                badge: "bg-purple-500"
+            },
+            {
+                id: 4,
+                emoji: "📶",
+                title: "Hotspot  📶",
+                desc: "Bilang aja biar aku tau kamu lagi butuh atau engga",
+                color: "bg-sky-100 border-sky-300 text-sky-950",
+                badge: "bg-sky-500"
+            }
+        ];
+
+        // Render 4 kartu voucher ke layar
+        function renderVouchers() {
+            const grid = document.getElementById('voucher-grid');
+            grid.innerHTML = '';
+
+            vouchersData.forEach((v) => {
+                const card = document.createElement('div');
+                card.id = `voucher-card-${v.id}`;
+                card.onclick = () => claimVoucher(v.id, v.title);
+                card.className = `relative cursor-pointer rounded-3xl p-5 border-2 border-dashed ${v.color} shadow-md transition-all duration-200 hover:-translate-y-1 hover:shadow-lg select-none overflow-hidden`;
+
+                card.innerHTML = `
+                    <!-- Efek sobekan tiket kiri & kanan -->
+                    <div class="voucher-notch-left"></div>
+                    <div class="voucher-notch-right"></div>
+
+                    <div class="flex items-start gap-3.5">
+                        <div class="w-12 h-12 rounded-2xl bg-white/95 flex items-center justify-center text-2xl shadow-sm shrink-0">
+                            ${v.emoji}
+                        </div>
+                        <div class="space-y-1 pr-2">
+                            <h3 class="font-display font-black text-base sm:text-lg leading-snug">
+                                ${v.title}
+                            </h3>
+                            <p class="text-xs font-bold opacity-80 leading-relaxed">
+                                ${v.desc}
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="mt-4 pt-3 border-t border-black/10 flex items-center justify-between text-xs font-extrabold">
+                        <span class="opacity-70">Berlaku: Selamanya ♾️</span>
+                        <span id="voucher-status-${v.id}" class="${v.badge} text-white px-3 py-1 rounded-full">
+                            Ketuk Klaim
+                        </span>
+                    </div>
+
+                    <!-- Stempel "DIKLAIM! ✅" (Muncul saat kartu diklik/di-tap) -->
+                    <div id="voucher-stamp-${v.id}" class="hidden absolute inset-0 bg-white/55 backdrop-blur-[1.5px] flex items-center justify-center z-20">
+                        <div class="stamp-claimed border-4 border-rose-600 text-rose-600 font-display font-black text-xl sm:text-2xl px-4 py-1.5 rounded-xl tracking-wider uppercase bg-white/95 shadow-md">
+                            DIKLAIM! ✅
+                        </div>
+                    </div>
+                `;
+
+                grid.appendChild(card);
+            });
+        }
+
+        const claimedSet = new Set();
+
+        function claimVoucher(id, title) {
+            if (claimedSet.has(id)) {
+                showToast(`"${title}" udah kamu klaim barusan hehe 😆`);
+                return;
+            }
+
+            claimedSet.add(id);
+
+            const stamp = document.getElementById(`voucher-stamp-${id}`);
+            const status = document.getElementById(`voucher-status-${id}`);
+
+            stamp.classList.remove('hidden');
+            status.textContent = "Terklaim ✅";
+
+            showToast(`Berhasil klaim: ${title}! Screenshot ya 📸`);
+        }
+
+        // Menampilkan notifikasi toast di bawah layar
+        let toastTimeout;
+        function showToast(message) {
+            const toastBox = document.getElementById('toast-box');
+            const toastText = document.getElementById('toast-text');
+
+            toastText.textContent = message;
+            toastBox.classList.remove('opacity-0', 'translate-y-4');
+            toastBox.classList.add('opacity-100', 'translate-y-0');
+
+            clearTimeout(toastTimeout);
+            toastTimeout = setTimeout(() => {
+                toastBox.classList.remove('opacity-100', 'translate-y-0');
+                toastBox.classList.add('opacity-0', 'translate-y-4');
+            }, 3000);
+        }
+
+        // Render voucher saat halaman selesai dimuat
+        window.addEventListener('DOMContentLoaded', renderVouchers);
+    </script>
+</body>
+</html>
